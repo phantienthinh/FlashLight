@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">FlashLight</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="compass_dial" translatable="false">Compass Dial</string>
+
+    <string name="compass_hands" translatable="false">Compass Hands</string>
+
+    <string name="compass_north">N</string>
+
+    <string name="compass_east">E</string>
+
+    <string name="compass_south">S</string>
+
+    <string name="compass_west">W</string>
+
+    <string name="compass_northeast">NE</string>
+
+    <string name="compass_northwest">NW</string>
+
+    <string name="compass_southeast">SE</string>
+
+    <string name="compass_southwest">SW</string>
+
+</resources>

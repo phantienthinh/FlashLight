@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical"
+    tools:context=".activities.MainActivity">
+
+    <RelativeLayout
+        android:background="@drawable/main_bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.flashlight.ui.CompassView
+            android:id="@+id/main_compass_view"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/main_button_on_off_iv"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/main_button_on_ic"
+            android:layout_below="@id/main_compass_view"
+            android:layout_centerHorizontal="true"
+            android:layout_width="170dp"
+            android:layout_height="170dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

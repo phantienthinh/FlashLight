@@ -1,0 +1,62 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/main_compass_direction_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/compass_text_label"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:textColor="#fff"
+        android:text="NW307"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/main_compass_arrow_iv"
+        android:layout_margin="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/main_compass_direction_tv"
+        android:src="@drawable/ic_compass_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:background="?attr/selectableItemBackground"
+        android:id="@+id/main_compass_question_iv"
+        android:layout_alignRight="@id/main_compass_direction_tv"
+        android:layout_below="@id/main_compass_direction_tv"
+        android:scaleType="center"
+        android:src="@drawable/main_compass_question_ic"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+
+    <RelativeLayout
+        android:id="@+id/main_compass_rl"
+        android:layout_below="@id/main_compass_arrow_iv"
+        android:layout_centerHorizontal="true"
+        android:layout_width="90dp"
+        android:layout_height="90dp">
+
+        <ImageView
+            android:src="@drawable/compass_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:src="@drawable/compass_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/main_compass_pointer_iv"
+            android:src="@drawable/pointer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</RelativeLayout>
