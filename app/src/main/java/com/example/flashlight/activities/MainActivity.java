@@ -2,7 +2,8 @@ package com.example.flashlight.activities;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Switch;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.annotation.Nullable;
 
@@ -11,18 +12,20 @@ import com.example.flashlight.controller.Compass.CompassListener;
 import com.example.flashlight.controller.Compass.CompassObserver;
 import com.example.flashlight.controller.flash.FlashController;
 import com.example.flashlight.ui.CompassView;
+import com.example.flashlight.ui.SeekbarSos;
 
 public class MainActivity extends BaseActivity implements
-        View.OnClickListener, CompassView.showQuestion {
+        View.OnClickListener, CompassView.showQuestion, CompoundButton.OnCheckedChangeListener, SeekbarSos.OnSeekbarChange {
 
-    private static int[] VIEW_EVENTS = {R.id.main_button_on_off_iv};
+    private static int[] VIEW_EVENTS = {};
 
     private static final String TAG = "MainActivity";
-    private Switch mSwitchAppState;
 
     private CompassObserver compassObserver;
     private CompassView compassView;
-    private FlashController flashControler;
+    private FlashController flashController;
+    private CheckBox checkBox;
+    private SeekbarSos seekbarSos;
 
 
     @Override
@@ -32,7 +35,9 @@ public class MainActivity extends BaseActivity implements
 
     @Override
     protected void findViewById() {
+        checkBox = findViewById(R.id.main_button_on_off_cb);
         compassView = findViewById(R.id.main_compass_view);
+        seekbarSos = findViewById(R.id.main_Seek_bar);
     }
 
     @Override
@@ -40,12 +45,14 @@ public class MainActivity extends BaseActivity implements
         super.onCreateInit(savedInstanceState);
         compassView.setListener(this);
         setupCompass();
-        flashControler = new FlashController();
+        seekbarSos.setOnSeekbarChange(this);
+        flashController = new FlashController();
         onEventClick();
     }
 
     private void onEventClick() {
         bindClicks(this, VIEW_EVENTS);
+        checkBox.setOnCheckedChangeListener(this);
     }
 
     private void setupCompass() {
@@ -70,8 +77,8 @@ public class MainActivity extends BaseActivity implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.main_button_on_off_iv:
-                flashControler.open();
+            case R.id.main_button_on_off_cb:
+                flashController.startFlash(500);
                 break;
         }
     }
@@ -112,5 +119,19 @@ public class MainActivity extends BaseActivity implements
     @Override
     public void showQuestion() {
 
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (flashController != null) {
+            if (isChecked)
+                flashController.startFlash(0);
+            else flashController.stopFlash();
+        }
+    }
+
+    @Override
+    public void onSeekbarChange(int progress) {
+        flashController.setTimeDelay(progress * 100);
     }
 }

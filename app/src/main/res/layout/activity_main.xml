@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:fitsSystemWindows="true"
@@ -9,13 +9,21 @@
     tools:context=".activities.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/main_top_bg_rl"
+        android:layout_alignParentTop="true"
         android:background="@drawable/main_bg_top"
         android:layout_width="match_parent"
         android:layout_height="130dp">
-
     </RelativeLayout>
+    <com.example.flashlight.ui.SeekbarSos
+        android:id="@+id/main_Seek_bar"
+        android:layout_above="@id/main_function_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <RelativeLayout
+        android:id="@+id/main_function_rl"
+        android:layout_below="@id/main_top_bg_rl"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -23,17 +31,18 @@
             android:id="@+id/main_compass_view"
             android:layout_marginTop="30dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/main_button_on_off_iv"
+        <CheckBox
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_cb"
+            android:id="@+id/main_button_on_off_cb"
             android:layout_marginTop="30dp"
-            android:src="@drawable/main_button_on_ic"
             android:layout_below="@id/main_compass_view"
             android:layout_centerHorizontal="true"
             android:layout_width="170dp"
-            android:layout_height="170dp"/>
+            android:layout_height="170dp" />
 
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
